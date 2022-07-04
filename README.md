@@ -35,4 +35,4 @@ if a Cell is Alive :
   
   
   
-  screenshot(gif.gif)
+ ![Screenshot](gif.gif)
