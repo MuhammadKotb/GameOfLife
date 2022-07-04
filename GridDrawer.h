@@ -3,9 +3,9 @@
 #include <SFML/Graphics.hpp>
 #include "MACROS.H"
 
-constexpr unsigned int ROW_NUM = 72;
-constexpr unsigned int COL_NUM = 128;
-constexpr unsigned int CELL_WIDTH = 10;
+constexpr unsigned int ROW_NUM = 36;
+constexpr unsigned int COL_NUM = 64;
+constexpr unsigned int CELL_WIDTH = 20;
 
 
 struct Cell {

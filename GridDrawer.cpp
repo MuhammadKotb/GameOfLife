@@ -55,10 +55,10 @@ Grid::Grid()
 			this->cells[i][j]->rect->setPosition(posX, posY);
 			this->cells[i][j]->row = i;
 			this->cells[i][j]->col = j;
-			posX += 10;
+			posX += CELL_WIDTH;
 		}
 		posX = 0;
-		posY += 10;
+		posY += CELL_WIDTH;
 	}
 }
 Grid::~Grid()

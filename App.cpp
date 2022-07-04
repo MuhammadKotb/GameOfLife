@@ -16,6 +16,7 @@ int main()
 	GridDrawer* gridDrawer = new GridDrawer(grid);
 	Controller* controller = new Controller(grid);
 	bool started = false;
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -29,40 +30,57 @@ int main()
 			}
 		}
 
-		while (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
-			started = false;
-
-			unsigned int row = sf::Mouse::getPosition(window).y / 10;
-			unsigned int col = sf::Mouse::getPosition(window).x / 10;
+			window.close();
+		}
+		
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			const unsigned int row = sf::Mouse::getPosition(window).y / CELL_WIDTH;
+			const unsigned int col = sf::Mouse::getPosition(window).x / CELL_WIDTH;
 			Cell* current_cell = grid->getCellByPosition(row, col);
 
 			if (current_cell != nullptr)
 			{
 				current_cell->rect->setFillColor(sf::Color::Black);
 				current_cell->last_dead = false;
-
-
-				window.draw(*current_cell->rect);
 			}
-			
-			window.display();
+		}	
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+		{ 
+			const unsigned int row = sf::Mouse::getPosition(window).y / CELL_WIDTH;
+			const unsigned int col = sf::Mouse::getPosition(window).x / CELL_WIDTH;
+			Cell* current_cell = grid->getCellByPosition(row, col);
+
+			if (current_cell != nullptr)
+			{
+				current_cell->rect->setFillColor(sf::Color(SILVER));
+				current_cell->last_dead = true;
+			}
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+		{
+			window.setFramerateLimit(0);
+
+			started = false;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) 
 		{
 			started = true;
+			window.setFramerateLimit(10);
 		}
 		if (started)
 		{
 			controller->step();
 		}
-		log("before second display");
 		window.clear();
 		gridDrawer->draw(window, started);
 		window.display();
 		
 	}
+	delete (gridDrawer);
+
 	delete (grid);
 
-	delete (gridDrawer);
 }
