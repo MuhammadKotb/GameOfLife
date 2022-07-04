@@ -33,7 +33,7 @@ if a Cell is Alive :
       A person cannot logically or mathematically predict the future state of the game  
       It is very interseting and fun way to show and discuss undecidability in Mathmetaics.
         
-[More on Undecidability](https://en.wikipedia.org/wiki/Undecidable_problem)
+[More on Undecidability\n](https://en.wikipedia.org/wiki/Undecidable_problem)
 [More on Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
         
      
