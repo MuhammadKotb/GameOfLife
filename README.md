@@ -1,7 +1,7 @@
 # GameOfLife
 
 
-#Introduction
+# Introduction
 
     Conway's Game of Life or Life or GOF is a Cellular automated game
     created by British Mathmetician John Conway in 1970 in which cell is alive or dead.
@@ -10,7 +10,7 @@
     The Game future states depends solely on its initial state.
 
 
-#Rules
+# Rules
 
     if a Cell is Dead : 
 
@@ -28,10 +28,15 @@ if a Cell is Alive :
     it will continue to live to the next generation if it has 2 or 3 alive neighbours.
     
   
-  #Why it is Important
+  # Why it is Important
   
       A person cannot logically or mathematically predict the future state of the game  
       It is very interseting and fun way to show and discuss undecidability in Mathmetaics.
+        
+        [More on Undecidability](https://en.wikipedia.org/wiki/Undecidable_problem)
+        [More on Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+        
+     
   
   
   
