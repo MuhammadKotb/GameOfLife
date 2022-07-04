@@ -34,3 +34,5 @@ if a Cell is Alive :
       It is very interseting and fun way to show and discuss undecidability in Mathmetaics.
   
   
+  
+  screenshot(gif.gif)
