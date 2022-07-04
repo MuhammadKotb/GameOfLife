@@ -23,38 +23,14 @@ unsigned int Controller::livingNeighbours(const unsigned int row, const unsigned
 	Cell* downRightCell = this->grid->getCellByPosition(row + 1, col + 1);
 
 
-	if (leftCell)
-	{
-		ctr += !leftCell->last_dead;
-	}
-	if (rightCell)
-	{
-		ctr += !rightCell->last_dead;
-	}
-	if (downCell)
-	{
-		ctr += !downCell->last_dead;
-	}
-	if (upCell)
-	{
-		ctr += !upCell->last_dead;
-	}
-	if (upLeftCell)
-	{
-		ctr += !upLeftCell->last_dead;
-	}
-	if (upRightCell)
-	{
-		ctr += !upRightCell->last_dead;
-	}
-	if (downLeftCell)
-	{
-		ctr += !downLeftCell->last_dead;
-	}
-	if (downRightCell)
-	{
-		ctr += !downRightCell->last_dead;
-	}
+	ctr += leftCell && !leftCell->last_dead;
+	ctr += rightCell && !rightCell->last_dead;
+	ctr += downCell && !downCell->last_dead;
+	ctr += upCell && !upCell->last_dead;
+	ctr += upLeftCell && !upLeftCell->last_dead;
+	ctr += upRightCell && !upRightCell->last_dead;
+	ctr += downLeftCell && !downLeftCell->last_dead;
+	ctr += downRightCell && !downRightCell->last_dead;
 
 	return ctr;
 }

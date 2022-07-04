@@ -32,7 +32,19 @@ void GridDrawer::draw(sf::RenderWindow& window, bool started)
 				this->grid->cells[i][j]->last_dead = this->grid->cells[i][j]->current_dead;
 
 			}
+			if (this->grid->cells[i][j]->chosen)
+			{
+				this->grid->cells[i][j]->rect->setOutlineColor(sf::Color::Red);
+				this->grid->cells[i][j]->rect->setOutlineThickness(1.5);
+			}
+			else
+			{
+				this->grid->cells[i][j]->rect->setOutlineColor(this->grid->cells[i][j]->rect->getFillColor());
+				this->grid->cells[i][j]->rect->setOutlineThickness(0);
+			}
+
 			window.draw(*this->grid->cells[i][j]->rect);
+			this->grid->cells[i][j]->chosen = false;
 		}
 	}
 }

@@ -11,6 +11,7 @@ constexpr unsigned int CELL_WIDTH = 20;
 struct Cell {
 	bool current_dead = true;
 	bool last_dead = true;
+	bool chosen = false;
 	unsigned int row = 0;
 	unsigned int col = 0;
 	sf::RectangleShape* rect = nullptr;

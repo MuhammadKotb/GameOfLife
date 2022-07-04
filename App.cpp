@@ -34,9 +34,17 @@ int main()
 		{
 			window.close();
 		}
-		
+		const unsigned int row = sf::Mouse::getPosition(window).y / CELL_WIDTH;
+		const unsigned int col = sf::Mouse::getPosition(window).x / CELL_WIDTH;
+
+		Cell* current_cell = grid->getCellByPosition(row, col);
+		if (current_cell != nullptr)
+		{
+			current_cell->chosen = true;
+		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
+			started = false;
 			const unsigned int row = sf::Mouse::getPosition(window).y / CELL_WIDTH;
 			const unsigned int col = sf::Mouse::getPosition(window).x / CELL_WIDTH;
 			Cell* current_cell = grid->getCellByPosition(row, col);
@@ -61,14 +69,11 @@ int main()
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 		{
-			window.setFramerateLimit(0);
-
 			started = false;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) 
 		{
 			started = true;
-			window.setFramerateLimit(10);
 		}
 		if (started)
 		{
