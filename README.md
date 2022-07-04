@@ -3,18 +3,20 @@
 
 #Introduction
 
-    Conway's Game of Life or Life or GOF is a Cellular automated game created by British Mathmetician John Conway in 1970 in which cell is alive or dead.
-    Each Cell's next generation state is determined by the current state of its 8 neighbours (up, left, down, right, upleft, downright, downleft, upright).
+    Conway's Game of Life or Life or GOF is a Cellular automated game
+    created by British Mathmetician John Conway in 1970 in which cell is alive or dead.
+    Each Cell's next generation state is determined by the current state of its 8 neighbours 
+    (up, left, down, right, upleft, downright, downleft, upright).
     The Game future states depends solely on its initial state.
 
 
 #Rules
 
-if a Cell is Dead : 
-    
-    it will be alive the next generation(step) if it has exactly 3 alive neighhours 
-else 
-    the cell remains dead.
+    if a Cell is Dead : 
+
+        it will be alive the next generation(step) if it has exactly 3 alive neighhours 
+    else 
+        the cell remains dead.
     
  
 if a Cell is Alive :
