@@ -31,7 +31,7 @@ if a Cell is Alive :
   The Game of Life is Undecidable.
   A person cannot logically or mathematically predict exactly the future state of the game
   over a finite amount of time.
-  It is very interseting and fun way to show and discuss undecidability in Mathmetaics.
+  It is very interseting and fun way to show and discuss undecidability in Mathematics.
         
 [More on Undecidability](https://en.wikipedia.org/wiki/Undecidable_problem)  
 [More on Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
