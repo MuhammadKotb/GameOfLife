@@ -9,8 +9,8 @@ constexpr unsigned int CELL_WIDTH = 10;
 
 
 struct Cell {
-	bool current_dead = false;
-	bool last_dead = false;
+	bool current_dead = true;
+	bool last_dead = true;
 	unsigned int row = 0;
 	unsigned int col = 0;
 	sf::RectangleShape* rect = nullptr;
@@ -33,7 +33,7 @@ public:
 	GridDrawer(Grid* grid);
 	~GridDrawer();
 
-	void draw(sf::RenderWindow& window);
+	void draw(sf::RenderWindow& window, bool started);
 };
 
 

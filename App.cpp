@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "MACROS.H"
 #include "GridDrawer.h"
+#include "Controller.h"
 
 
 int main()
@@ -12,10 +13,9 @@ int main()
 	window.setFramerateLimit(0);
 
 	Grid* grid = new Grid();
-
 	GridDrawer* gridDrawer = new GridDrawer(grid);
-
-
+	Controller* controller = new Controller(grid);
+	bool started = false;
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -28,30 +28,39 @@ int main()
 				window.close();
 			}
 		}
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+
+		while (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
+			started = false;
+
 			unsigned int row = sf::Mouse::getPosition(window).y / 10;
 			unsigned int col = sf::Mouse::getPosition(window).x / 10;
 			Cell* current_cell = grid->getCellByPosition(row, col);
+
 			if (current_cell != nullptr)
 			{
 				current_cell->rect->setFillColor(sf::Color::Black);
-			}
-		}
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
-		{
-			unsigned int row = sf::Mouse::getPosition(window).y / 10;
-			unsigned int col = sf::Mouse::getPosition(window).x / 10;
-			Cell* current_cell = grid->getCellByPosition(row, col);
-			if (current_cell != nullptr)
-			{
-				current_cell->rect->setFillColor(sf::Color(GREY));
-			}
-		}
+				current_cell->last_dead = false;
 
+
+				window.draw(*current_cell->rect);
+			}
+			
+			window.display();
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) 
+		{
+			started = true;
+		}
+		if (started)
+		{
+			controller->step();
+		}
+		log("before second display");
 		window.clear();
-		gridDrawer->draw(window);
+		gridDrawer->draw(window, started);
 		window.display();
+		
 	}
 	delete (grid);
 

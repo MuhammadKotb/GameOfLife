@@ -13,12 +13,25 @@ GridDrawer::~GridDrawer()
 }
 
 
-void GridDrawer::draw(sf::RenderWindow& window)
+void GridDrawer::draw(sf::RenderWindow& window, bool started)
 {
 	for (int i = 0; i < ROW_NUM; i++)
 	{
 		for (int j = 0; j < COL_NUM; j++)
 		{
+			if (started)
+			{
+				if (this->grid->cells[i][j]->current_dead)
+				{
+					this->grid->cells[i][j]->rect->setFillColor(sf::Color(SILVER));
+				}
+				else
+				{
+					this->grid->cells[i][j]->rect->setFillColor(sf::Color::Black);
+				}
+				this->grid->cells[i][j]->last_dead = this->grid->cells[i][j]->current_dead;
+
+			}
 			window.draw(*this->grid->cells[i][j]->rect);
 		}
 	}
@@ -56,7 +69,6 @@ Grid::~Grid()
 		{
 			delete(cells[i][j])->rect;
 			delete(cells[i][j]);
-
 		}
 	}
 }
