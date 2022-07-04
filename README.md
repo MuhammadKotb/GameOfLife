@@ -14,30 +14,27 @@
 
     if a Cell is Dead : 
 
-        it will be alive the next generation(step) if it has exactly 3 alive neighhours 
-    else 
-        the cell remains dead.
-    
+        it will be alive in the next generation(step) if it has exactly 3 alive neighhours 
+   
  
-if a Cell is Alive :
+    if a Cell is Alive :
 
-    it will die if it has 4 or more alive neighbours due to overpopulation.
-    
-    it will die if it has 1 or less alive neighbours due to underpopulation.
-    
-    it will continue to live to the next generation if it has 2 or 3 alive neighbours.
+        it will die if it has 4 or more alive neighbours due to overpopulation.
+
+        it will die if it has 1 or less alive neighbours due to underpopulation.
+
+        it will continue to live to the next generation if it has 2 or 3 alive neighbours.
     
   
-  # Why it is Important
-  
-      A person cannot logically or mathematically predict the future state of the game  
-      It is very interseting and fun way to show and discuss undecidability in Mathmetaics.
+# Why it is Important
+
+  A person cannot logically or mathematically predict the future state of the game  
+  It is very interseting and fun way to show and discuss undecidability in Mathmetaics.
         
 [More on Undecidability](https://en.wikipedia.org/wiki/Undecidable_problem)  
 [More on Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
         
      
-  
   
   
  ![Screenshot](gif.gif)
