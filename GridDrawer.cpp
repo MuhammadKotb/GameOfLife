@@ -13,7 +13,7 @@ GridDrawer::~GridDrawer()
 }
 
 
-void GridDrawer::draw(sf::RenderWindow& window, bool started)
+void GridDrawer::draw(sf::RenderTexture& texture, bool started)
 {
 	for (int i = 0; i < ROW_NUM; i++)
 	{
@@ -43,7 +43,7 @@ void GridDrawer::draw(sf::RenderWindow& window, bool started)
 				this->grid->cells[i][j]->rect->setOutlineThickness(0);
 			}
 
-			window.draw(*this->grid->cells[i][j]->rect);
+			texture.draw(*this->grid->cells[i][j]->rect);
 			this->grid->cells[i][j]->chosen = false;
 		}
 	}

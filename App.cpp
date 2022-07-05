@@ -17,6 +17,13 @@ int main()
 	Controller* controller = new Controller(grid);
 	bool started = false;
 
+
+	sf::RenderTexture renderTextur;
+
+	renderTextur.create(WINDOW_WIDTH, WINDOW_HEIGHT);
+
+
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -42,7 +49,7 @@ int main()
 		{
 			current_cell->chosen = true;
 		}
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			started = false;
 			const unsigned int row = sf::Mouse::getPosition(window).y / CELL_WIDTH;
@@ -79,9 +86,14 @@ int main()
 		{
 			controller->step();
 		}
+		renderTextur.clear();
+		gridDrawer->draw(renderTextur, started);
+		renderTextur.display();
 		window.clear();
-		gridDrawer->draw(window, started);
+		sf::Sprite sprite(renderTextur.getTexture());
+		window.draw(sprite);
 		window.display();
+
 		
 	}
 	delete (gridDrawer);

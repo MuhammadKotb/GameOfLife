@@ -34,7 +34,7 @@ public:
 	GridDrawer(Grid* grid);
 	~GridDrawer();
 
-	void draw(sf::RenderWindow& window, bool started);
+	void draw(sf::RenderTexture& texture, bool started);
 };
 
 
